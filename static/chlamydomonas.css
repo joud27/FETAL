@@ -1,0 +1,259 @@
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+
+
+
+
+.background-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7; /* Ajuste l'opacité du fond d'écran */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.header {
+    background:#f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    background-image: url('background.jpg'); /* Ajoutez le chemin vers votre image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+
+.title {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    width:100%;
+}
+
+
+.content {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-left: 140px; /* Ajoute un espace entre la barre de gauche et le rectangle du milieu */
+    margin-right: 360px; 
+    border: 2px solid #75c52a;
+}
+
+.sidebar:hover + .content {
+    padding-left: 250px;
+}
+
+
+
+
+.main {
+    flex: 1;
+    padding: 20px; 
+}
+
+.menu-text {
+    display: none;
+}
+
+
+/*Texte de la page d'accueil*/
+.project-description {
+    text-align: center;
+}
+
+.project-description h2 {
+    font-size: 24px;
+}
+
+.project-description p {
+    font-size: 16px;
+}
+
+/*DATA de droite*/
+.options {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    background:linear-gradient(to bottom, #537434,#75c52a );
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(138, 136, 136, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 8px 8px 0; 
+    overflow: hidden;
+}
+
+
+.options h3 {
+    font-size: 18px;
+}
+
+.options ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options li {
+    padding: 10px;
+    border: none; /* Suppression des bordures */
+    background-color:#537434; /* Fond vert */
+    color: #080808; /* Texte blanc */
+    margin-bottom: 5px;
+    border-radius: 5px; /* Coins arrondis */
+}
+
+.options li:hover {
+    background-color: #537434; /* Changement de couleur au survol */
+}
+
+.options li:last-child {
+    border-bottom: none; /* Supprime la bordure inférieure du dernier élément */
+}
+.options .sub-options {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options .expandable:hover .sub-options {
+    display: block;
+}
+
+.options .expandable .sub-options li {
+    margin-left: 15px; /* Indentation des options déroulées */
+}
+
+.options .file-input {
+    display: none; /* Masquer le champ de téléchargement par défaut */
+}
+
+.options label.upload-label {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: inline-block;
+}
+
+.options label.upload-label:hover {
+    background-color: #f0f0f0; /* Changement de couleur au survol */
+}
+
+
+/*Upload files*/
+.custom-upload-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #537434;
+    color: #fff;
+    cursor: pointer;
+}
+
+.file-input {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+/*menu de gauche pour les différents modules*/
+
+.sidebar {
+    width: 50px; /* Largeur initiale du menu */
+    background:linear-gradient(to bottom, #537434,#75c52a );
+    height: 100vh;
+    overflow: hidden;
+    transition: width 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-right: 10px; /* Ajoute un espace entre la barre de gauche et le rectangle du milieu */
+}
+.sidebar:hover {
+    width: 250px;
+}
+
+.sidebar li:hover {
+    background-color:#94df4e /* Couleur de fond au survol dans le menu de gauche */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Masquer la liste initialement */
+    position: absolute;
+    top: 0;
+    left: 50px; /* Laissé une marge égale à la largeur du menu initial */
+    width: 200px; /* Largeur de la liste */
+    background-color: #537434;
+}
+
+.sidebar:hover ul {
+    display: block; 
+}
+
+.sidebar li {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #537434;
+    color:#537434;
+}
+
+.sidebar li:last-child {
+    border-bottom: none; /* Supprimer la bordure inférieure du dernier élément de la liste */
+}
+
+.sidebar:hover .menu-text {
+    display: block; /* Afficher le texte du menu lorsqu'on passe dessus */
+}
+
+.sidebar .menu-toggle {
+    cursor: pointer;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: 0.3s;
+}
+
+.sidebar .menu-toggle::before,
+.sidebar .menu-toggle::after {
+    content: '';
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.sidebar .menu-toggle::after {
+    top: 20px;
+}

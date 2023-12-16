@@ -1,0 +1,6 @@
+*.sh
+static/data/*
+__pycache__
+requirements.txt
+tree.png
+DATABASE/*.txt

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chlamydomonas.css') }}">
+    <title>Ma Page Web</title>
+</head>
+<body>
+    
+        <div class="container"> 
+            <div class="header">
+                <label for="menu-toggle" class="menu-toggle"></label>
+                <div class="title">
+                    <p>CHLAMYDOMONAS GENOMIC ANALYSIS</p>
+                </div>
+                <div class="options">
+                    <h3>DATA</h3>
+                    <ul>
+                        <li>
+                            <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+                                <label for="file-upload" class="custom-upload-btn">UPLOAD FILES </label>
+                                <input type="file" name="file" id="file-upload" class="file-input" accept=".fa,.fna,.fai,.mni,.sam,.bam,.json,.phy" multiple>
+                                <input type="submit" value="submit" >
+                            </form>
+                        </li>
+                        <li class="expandable">
+                            <a href="#">DATABASE ▼</a>
+                            <ul class="sub-options">
+                                {% for filename, file_info in files.items() %}
+                                    <li>
+                                        <a href="{{ url_for('uploaded_file', filename=filename) }}">{{ filename }}</a>
+                                        <a href="{{ url_for('delete_file', filename=filename) }}" onclick="return confirm('Are you sure you want to delete this file?')">Delete</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar">
+                <label for="menu-toggle" class="menu-toggle"></label>
+                <ul>
+                    <li><a href="{{ url_for('chlamydomonas') }}">CHLAMYDOMONAS</a></li>
+                    <li><a href="{{ url_for('genome') }}">GENOME VIZUALISATION</a></li>
+                    <li><a href="{{ url_for('alignement') }}">ALIGNMENT</a></li>
+                    <li><a href="{{ url_for('phylogenie') }}">PHYLOGENY</a></li>
+                    <li><a href="{{ url_for('links') }}">LINKS</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="project-description">
+                    <h2>Welcome to Chlamydomas Genomic Analysis</h2>
+                <p>  
+                    For several years, green algae have posed a major problem on the French coasts. This project aims to develop a set of tools for the study of this species and to bring together these tools on a website for the benefit of the scientific community.
+                    Our website will focus on the genetics of Chlamydomonas, offering several modules to the research community.
+                </p>
+                    <ul class="list">
+                        <li>The visualization of Chlamydomonas genome</li>
+                        <li>Phylogenetic study with Newick visualization and phylogenetics trees </li>
+                        <li>Sequences alignment  </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9); /* Background color with transparency */
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('chla1.jpeg'); /* Background image URL */
+    background-size: cover; /* Cover the entire viewport */
+    opacity: 0.5; /* Adjust the opacity as needed */
+}
+
+/* Ajoutez ces styles pour positionner les zones de texte côte à côte */
+.content-container {
+    padding-top: 70px;
+    display: flex;
+    justify-content: space-between; /* Pour espacer les éléments sur la ligne */
+    align-items: center;
+}
+
+/* Ajoutez ces styles pour espacer les zones de texte */
+.text-area {
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: #fff;
+    border: 2px solid #75c52a; /* Vous pouvez changer la couleur à votre préférence */
+    border-radius: 10px; /* Pour arrondir les coins */
+    margin-bottom: 20px; /* Espacement entre les zones */
+    transition: max-height 0.3s ease;
+}
+
+/* Restez avec les styles précédents pour centrer le texte dans les zones */
+.text-area h2, .text-area p {
+    text-align: center;
+}
+
+/* Restez avec les styles précédents pour afficher le texte au survol */
+.text-area:hover p, .text-area.expanded p {
+    display: block;
+}
+/* Add these styles to hide the paragraph initially */
+.text-area p {
+    display: none;
+}
+
+/* Keep the hover styles for the text area */
+.text-area:hover p {
+    display: block;
+}
+
+.text-area img {
+    display: none; /* Hide the image by default */
+    max-width: 100%; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px; /* Optional spacing between text and image */
+}
+
+.text-area:hover img {
+    display: block; /* Show the image when hovering over the text area */
+}
+
+.text-area .list {
+    display: none;
+}
+
+/* Show the list when hovering over the text area */
+.text-area:hover .list {
+    display: block;
+}
+
+.title-bar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to right, #537434, #75c52a);
+    color: #333;
+    box-sizing: border-box;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #333;
+    justify-content: flex-start;
+}
+
+.title-bar p {
+    margin: 0;
+    font-weight: bold;
+}
+
+

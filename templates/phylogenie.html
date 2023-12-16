@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='phylogenie.css') }}">
+</head>
+<body>
+    <div class="title-bar">
+        <p>PHYLOGENY</p>
+    </div>
+    <div class="content-container">
+        <div class="text-area expandable" id="top-left-text">
+            <h2>WHAT IS PHYLOGENY?</h2>
+            <p>Phylogeny is a branch of taxonomy whose aim is to transcribe the kinship links between taxa based on the recognition of morpho-anatomical or genetic characters, and to propose various levels of plesiomorphy (or ancestrality) for the appearance of these characters, while considering the homoplasy phenomena (evolutionary convergence or reversion) that can blur the synapomorphic signal.</p>
+            <img src="{{ url_for('static', filename='phylo2.png') }}" alt="Description de l'image">
+        </div>
+
+        <div class="phylogeny-container">
+            <div class="phylogeny-options">
+                <h3>Phylogeny Analysis Options:</h3>
+                <form action="{{ url_for('perform_phylogeny') }}" method="post" enctype="multipart/form-data">
+                    <label for="phylogenetic-file">Choose Phylogenetic File from DATABASE:</label>
+                    <select name="phylogenetic_file" id="phylogenetic-file">
+                        {% for file in database_files %}
+                            <option value="{{ file }}">{{ file }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Perform Phylogeny">
+                </form>
+            </div>
+
+            <!-- Suppression des fichiers -->
+            <div class="delete-file-form">
+                <h3>Delete File:</h3>
+                <form action="{{ url_for('delete_file') }}" method="post">
+                    <label for="delete-file">Choose File to Delete:</label>
+                    <select name="delete_file" id="delete-file">
+                        {% for file in database_files %}
+                            <option value="{{ file }}">{{ file }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Delete File">
+                </form>
+            </div>
+
+            <!-- Visualisation de l'arbre phylogénétique -->
+            <div class="tree-visualization">
+                <h3>Tree Visualization:</h3>
+                <form action="{{ url_for('tree_visualization') }}" method="post">
+                    <label for="visualization-file">Choose Tree File for Visualization:</label>
+                    <select name="visualization_file" id="visualization-file">
+                        {% for file in database_files %}
+                            {% if file.endswith('.txt') %}
+                                <option value="{{ file }}">{{ file }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Visualize Tree">
+                </form>
+            </div>
+        </div>
+
+        <div class="database-container">
+            <div class="box database-files">
+                <h3>Files in DATABASE:</h3>
+                <ul>
+                    {% for file in database_files %}
+                        <li><a href="{{ url_for('display_phylogeny_file', filename=file) }}">{{ file }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='alignement.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Alignment Page</title>
+</head>
+<body>
+    <div class="title-bar">
+        <p>ALIGNMENT</p>
+    </div>
+    <div class="content-container">
+        <div class="text-area">
+            <h2>WHAT IS ALIGNMENT?</h2>
+            <p>Sequence alignment is a way of arranging protein (or DNA) sequences to identify regions of similarity that may be a consequence of evolutionary relationships between the sequences.
+               (Encyclopedia of Bioinformatics and Computational Biology, 2019)</p>
+        </div>
+        <div class="image-area">
+            <img src="{{ url_for('static', filename='align1.jpeg') }}" alt="Image à droite">
+        </div>
+        <form action="{{ url_for('alignement_BWA') }}" method="post" enctype="multipart/form-data">
+            <label for="ref_file">Sélectionner le fichier FASTA de référence :</label>
+            <input type="file" name="ref_file" accept=".fasta">
+
+            <label for="reads_file">Sélectionner le fichier FASTQ à aligner :</label>
+            <input type="file" name="reads_file" accept=".fastq">
+
+            <button type="submit">Lancer l'alignement</button>
+        </form>
+    </div>
+</body>
+</html>
+

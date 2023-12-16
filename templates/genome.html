@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='genome.css') }}"
+    />
+    <script src="{{ url_for('static', filename='igv/igv.min.js') }}"></script>
+    <script>
+      var static_url = "{{ url_for('static', filename='') }}";
+    </script>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+    />
+  </head>
+
+  <body>
+    <div class="title-bar">
+      <div id="flexitem1">
+        <p>GENOME VISUALISATION</p>
+      </div>
+      <div id="flexitem2"><a href="{{ url_for('home') }}">HOME</a></div>
+    </div>
+    <div class="content-container">
+      <div class="flexcontainer_horizontal">
+        <div>
+          <button id="button1">
+            <b>See <i>Chlamydomonas reinhardtii</i> reference genome</b>
+          </button>
+        </div>
+        <div>
+          <button id="button2"><b>Import fasta sequence and bam file</b></button>
+        </div>
+      </div>
+      <div id="igv-div"></div>
+      <div>
+        <div id="blabla1"></div>
+      </div>
+      <div>
+      <div id="blabla2"></div>
+    </div>
+    </div>
+  </body>
+
+  <script src="{{ url_for('static', filename='genome.js') }}"></script>
+</html>

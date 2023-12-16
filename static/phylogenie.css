@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.content-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.content-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/chla1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.text-area {
+    width: 30%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: #fff;
+    border: 2px solid #75c52a;
+    border-radius: 10px;
+    margin-right: 20px;
+    transition: max-height 0.3s ease;
+}
+
+.text-area h2,
+.text-area p {
+    text-align: center;
+}
+
+.text-area:hover p,
+.text-area.expanded p {
+    display: block;
+}
+
+.text-area p {
+    display: none;
+}
+
+.text-area:hover p {
+    display: block;
+}
+
+.text-area img {
+    max-width: 100%;
+    height: auto;
+    display: none; /* Masquer l'image par défaut */
+}
+
+.text-area:hover img {
+    display: block; /* Afficher l'image lors du survol */
+}
+.title-bar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to right, #537434, #75c52a);
+    color: #333;
+    box-sizing: border-box;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #333;
+}
+
+.title-bar p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Onglet Database */
+.database-container {
+    width: 30%;
+    margin-left: auto;
+}
+
+.database-files {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #fff;
+    border: 2px solid #75c52a;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.database-files a {
+    display: block;
+    word-wrap: break-word;
+}
+
+/* Onglet Formulaire qui performe la phylogénie */
+.middle-container {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.forms-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.phylogeny-options,
+.delete-file-form,
+.tree-visualization {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #7faf52;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    
+}
+
